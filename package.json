@@ -1,0 +1,15 @@
+{
+  "name": "serverless-project-1",
+  "version": "1.0.0",
+  "description": "This project demonstrates how to make a simple HTTP API with Node.js running on AWS Lambda and API Gateway using the Serverless Framework.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yash sharma",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1436.0",
+    "uuid": "^9.0.0"
+  }
+}
