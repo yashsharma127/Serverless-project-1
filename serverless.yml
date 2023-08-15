@@ -1,0 +1,55 @@
+org: yashsharma127
+app: testing-end-to-end
+service: serverless-taskmaster-aws-app
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: us-east-1
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:*
+      Resource:
+        - arn:aws:dynamodb:us-east-1:626072240565:table/dataTable
+
+functions:
+  hello:
+    handler: src/hello.handler
+    events:
+      - httpApi:
+          path: /
+          method: get
+  insertData:
+    handler: src/insertData.handler
+    events:
+      - httpApi:
+          path: /work
+          method: post
+  viewData:
+    handler: src/viewData.handler
+    events:
+      - httpApi:
+          path: /work
+          method: get
+  deleteData:
+    handler: src/deleteData.handler
+    events:
+      - httpApi:
+          path: /work/{id}
+          method: put
+
+resources:
+  Resources:
+    dataTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: dataTable
+        BillingMode: PAY_PER_REQUEST
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
