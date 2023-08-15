@@ -1,5 +1,5 @@
 org: yashsharma127
-app: testing-end-to-end
+app: serverless-taskmaster-aws-app
 service: serverless-taskmaster-aws-app
 frameworkVersion: '3'
 
@@ -12,7 +12,7 @@ provider:
       Action:
         - dynamodb:*
       Resource:
-        - arn:aws:dynamodb:us-east-1:626072240565:table/dataTable
+        - arn:aws:dynamodb:us-east-1:266967553892:table/dataTable
 
 functions:
   hello:
