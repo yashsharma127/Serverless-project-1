@@ -1,7 +1,7 @@
 "use strict";
 const AWS = require("aws-sdk");
 
-const deleteData = async (event) => {
+const finishWork = async (event) => {
 
   const dynamoDb = new AWS.DynamoDB.DocumentClient();
 
@@ -23,5 +23,5 @@ const deleteData = async (event) => {
 };
 
 module.exports = {
-    handler: deleteData,
+    handler: finishWork,
 };
